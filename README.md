@@ -7,7 +7,7 @@ A handy way to create new TYPO3 content elements.
 ### Why?
 
 [Fluid Powered TYPO3](https://fluidtypo3.org/) is great and very powerful and if some day if have understood it fully and have read the [documentation](https://fluidtypo3.org/documentation/templating-manual/introduction.html) I'll probably never use anything else anymore.
-But until then I'll stick with this handy little extension that let's you create new TYPO3 content elements (rendered by fluid) in not time.
+But until then I'll stick with this handy little extension that let's you create new TYPO3 content elements (rendered by fluid) in no time.
 
 ### How?
 

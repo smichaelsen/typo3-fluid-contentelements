@@ -1,0 +1,13 @@
+{
+	"name": "appzap/fluid-contentelements",
+	"authors": [
+		{
+			"name": "Sebastian Michaelsen",
+			"email": "sebastian@app-zap.de",
+			"role": "developer"
+		}
+	],
+	"description": "A handy way to create new TYPO3 content elements",
+	"license": "GPL-2.0",
+	"type": "typo3-cms-extension"
+}
