@@ -24,7 +24,7 @@ In your `ext_tables.php`:
 \AppZap\FluidContentelements\ContentElement::registerContentElement($_EXTKEY, 'My New Element`);
 ```
 
-In your TYPO3 extension create the following file `Resources/Private/Fluid/ContentElements/MyNewElement.html` to render your content element. (The file name is the name of the element without spaces).
+In your TYPO3 extension create the following file `Resources/Private/ContentElements/MyNewElement.html` to render your content element. (The file name is the name of the element without spaces).
 
 This is the minimum setup to create a new content element called "My New Element".
 

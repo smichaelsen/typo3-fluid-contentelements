@@ -13,9 +13,9 @@ class ContentElement {
 	public static function addTyposcriptConstants($extensionKey) {
 		$constants = trim('
 			plugin.' . self::getPluginNamespace($extensionKey) . '.view {
-				templateRootPath = EXT:' . $extensionKey . '/Resources/Private/Fluid/ContentElements/
-				partialRootPath = EXT:' . $extensionKey . '/Resources/Private/Fluid/ContentElements/Partials/
-				layoutRootPath = EXT:' . $extensionKey . '/Resources/Private/Fluid/ContentElements/Layouts/
+				templateRootPath = EXT:' . $extensionKey . '/Resources/Private/ContentElements/
+				partialRootPath = EXT:' . $extensionKey . '/Resources/Private/ContentElements/Partials/
+				layoutRootPath = EXT:' . $extensionKey . '/Resources/Private/ContentElements/Layouts/
 			}
 		');
 		ExtensionManagementUtility::addTypoScript($extensionKey, 'constants', $constants);
@@ -63,10 +63,15 @@ class ContentElement {
 			array(self::localLangPath($extensionKey, $typename) . '.title', $typename),
 			'CType'
 		);
+		$icon = '';
+		$iconPath = '/Resources/Public/Icons/ContentElements/' . $filename . '.png';
+		if (file_exists(ExtensionManagementUtility::extPath($extensionKey) . $iconPath)) {
+			$icon = 'icon = ../typo3conf/ext/' . $extensionKey . $iconPath;
+		}
 		$pageTs = trim('
 			mod.wizards.newContentElement.wizardItems.common {
 				elements.' . $typename . ' {
-					icon = ../typo3conf/ext/' . $extensionKey . '/Resources/Public/Icons/ContentElements/' . $filename . '.png
+					' . $icon .  '
 					title = ' . self::localLangPath($extensionKey, $typename) . '.title
 					description = ' . self::localLangPath($extensionKey, $typename) . '.description
 					tt_content_defValues.CType = ' . $typename . '
