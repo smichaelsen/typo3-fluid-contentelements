@@ -2,23 +2,23 @@
 namespace AppZap\FluidContentelements;
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class ContentElement {
+
+	/**
+	 * @var array
+	 */
+	static private $registeredExtensions = array();
 
 	/**
 	 * Use in ext_localconf.php
 	 *
 	 * @param string $extensionKey
+	 * @deprecated Not necessary anymore. Has been integrated in registerContentElement()
 	 */
 	public static function addTyposcriptConstants($extensionKey) {
-		$constants = trim('
-			plugin.' . self::getPluginNamespace($extensionKey) . '.view {
-				templateRootPath = EXT:' . $extensionKey . '/Resources/Private/ContentElements/
-				partialRootPath = EXT:' . $extensionKey . '/Resources/Private/ContentElements/Partials/
-				layoutRootPath = EXT:' . $extensionKey . '/Resources/Private/ContentElements/Layouts/
-			}
-		');
-		ExtensionManagementUtility::addTypoScript($extensionKey, 'constants', $constants);
+		GeneralUtility::logDeprecatedFunction();
 	}
 
 	/**
@@ -29,6 +29,18 @@ class ContentElement {
 	 * @param bool $standardHeader
 	 */
 	public static function addContentElementTyposcript($extensionKey, $title, $standardHeader = TRUE) {
+		if (!isset(static::$registeredExtensions[$extensionKey])) {
+			$constants = trim('
+				plugin.' . self::getPluginNamespace($extensionKey) . '.view {
+					templateRootPath = EXT:' . $extensionKey . '/Resources/Private/ContentElements/
+					partialRootPath = EXT:' . $extensionKey . '/Resources/Private/ContentElements/Partials/
+					layoutRootPath = EXT:' . $extensionKey . '/Resources/Private/ContentElements/Layouts/
+				}
+			');
+			ExtensionManagementUtility::addTypoScript($extensionKey, 'constants', $constants);
+			static::$registeredExtensions[$extensionKey] = NULL;
+		}
+
 		$filename = str_replace(' ', '', $title);
 		$typename = self::getPluginNamespace($extensionKey) . '_' . strtolower(str_replace(' ', '_', $title));
 		// Frontend
