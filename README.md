@@ -20,7 +20,7 @@ In your `ext_localconf.php`:
 In your `ext_tables.php`:
 
 ```php
-\AppZap\FluidContentelements\ContentElement::registerContentElement($_EXTKEY, 'My New Element`);
+\AppZap\FluidContentelements\ContentElement::registerContentElement($_EXTKEY, 'My New Element');
 ```
 
 In your TYPO3 extension create the following file `Resources/Private/ContentElements/MyNewElement.html` to render your content element. (The file name is the name of the element without spaces).

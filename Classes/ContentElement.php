@@ -38,7 +38,7 @@ class ContentElement {
 				}
 			');
 			ExtensionManagementUtility::addTypoScript($extensionKey, 'constants', $constants);
-			static::$registeredExtensions[$extensionKey] = NULL;
+			static::$registeredExtensions[$extensionKey] = TRUE;
 		}
 
 		$filename = str_replace(' ', '', $title);
