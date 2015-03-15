@@ -14,14 +14,13 @@ But until then I'll stick with this handy little extension that let's you create
 In your `ext_localconf.php`:
 
 ```php
-\AppZap\FluidContentelements\ContentElement::addTyposcriptConstants($_EXTKEY);
 \AppZap\FluidContentelements\ContentElement::addContentElementTyposcript($_EXTKEY, 'My New Element');
 ```
 
 In your `ext_tables.php`:
 
 ```php
-\AppZap\FluidContentelements\ContentElement::registerContentElement($_EXTKEY, 'My New Element`);
+\AppZap\FluidContentelements\ContentElement::registerContentElement($_EXTKEY, 'My New Element');
 ```
 
 In your TYPO3 extension create the following file `Resources/Private/ContentElements/MyNewElement.html` to render your content element. (The file name is the name of the element without spaces).
