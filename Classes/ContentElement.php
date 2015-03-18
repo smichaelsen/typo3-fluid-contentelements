@@ -53,6 +53,7 @@ class ContentElement {
 					file = {$plugin.' . self::getPluginNamespace($extensionKey) . '.view.templateRootPath}' . $filename . '.html
 					partialRootPath = {$plugin.' . self::getPluginNamespace($extensionKey) . '.view.partialRootPath}
 					layoutRootPath = {$plugin.' . self::getPluginNamespace($extensionKey) . '.view.layoutRootPath}
+					extbase.controllerExtensionName = ' . GeneralUtility::underscoredToUpperCamelCase($extensionKey) . '
 				}
 			}
 		');
