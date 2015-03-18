@@ -7,7 +7,7 @@
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'Fluid Content Elements',
 	'description' => 'Simple way to create new content element types rendered with fluid',
-	'category' => 'frontend',
+	'category' => 'fe',
 	'author' => 'Sebastian Michaelsen',
 	'author_email' => 'sebastian@michaelsen.io',
 	'state' => 'stable',
